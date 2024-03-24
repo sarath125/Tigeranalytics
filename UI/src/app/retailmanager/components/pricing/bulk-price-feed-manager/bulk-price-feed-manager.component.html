@@ -1,0 +1,10 @@
+
+<p-fileUpload name="file" [url]="BulkUploadAPI" (onUpload)="onUpload($event)"
+              [multiple]="false" accept="text/csv" [maxFileSize]="1000000">
+  <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+      </ul>
+  </ng-template>
+</p-fileUpload>
+<p-toast></p-toast>

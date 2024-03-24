@@ -1,0 +1,24 @@
+<ag-grid-angular
+    style="width: 100%; height: 600px;"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [columnTypes]="columnTypes"
+    [rowModelType]="rowModelType"
+    [rowData]="rowData"
+    [class]="themeClass"
+    (gridReady)="onGridReady($event)"
+    [enableAdvancedFilter]="true"
+    (cellValueChanged)="onCellValueChanged($event)"
+  ></ag-grid-angular>
+
+  <p-dialog [(visible)]="deletePricing" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+    <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span>Are you sure you want to delete selected products?</span>
+    </div>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="cancelDelete()"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
+    </ng-template>
+</p-dialog>
+<p-toast></p-toast>
